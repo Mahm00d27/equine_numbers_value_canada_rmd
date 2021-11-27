@@ -6,6 +6,7 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
+library(knitr)
 ```
 
 ## Aim
@@ -55,13 +56,13 @@ industry after the Great Depression and the Second World War. An interesting fol
 Next we look at the range of the number horses for each provinces at any time point between 1940 - 1972:
 
 ```{r max horse table}
-max_horses <- horse_pop %>% 
+kable(horse_pop %>% 
   select(GEO, Value) %>% 
   rename(Province = GEO) %>% 
   group_by(Province) %>% 
   summarize(Maximum = max(Value),
-            Minimum = min(Value))
-max_horses
+            Minimum = min(Value)),
+  caption = "Table 1: Maximum and minimum number of horses for each province between 1940 - 1972")
 ```
 
 Below we zoom in and look at the province of Alberta:
