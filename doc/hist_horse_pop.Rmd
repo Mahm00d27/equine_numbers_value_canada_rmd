@@ -1,12 +1,17 @@
 ---
 title: "Historical horse population in Canada"
-output: github_document
+output: 
+  html_document: 
+    toc: true
+  github_document:
+    toc: True
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(knitr)
+library(kableExtra)
 ```
 
 ## Aim
@@ -36,7 +41,7 @@ The R programming language and the following R packages were used to perform the
 
 ## Results
 
-```{r plot horses, fig.width=10, fig.height=3}
+```{r plot horses, fig.width=10, fig.height=3, fig.cap="Figure 1. Equine population of all provinces in Canada between 1940 and 1972", out.width="100%"}
 horse_plot <- ggplot(horse_pop, aes(x = Ref_Date, y = Value)) +
   geom_point() +
   geom_line() +
@@ -56,18 +61,18 @@ industry after the Great Depression and the Second World War. An interesting fol
 Next we look at the range of the number horses for each provinces at any time point between 1940 - 1972:
 
 ```{r max horse table}
-kable(horse_pop %>% 
-  select(GEO, Value) %>% 
-  rename(Province = GEO) %>% 
-  group_by(Province) %>% 
+kable(horse_pop |>  
+  select(GEO, Value) |>  
+  rename(Province = GEO) |>  
+  group_by(Province) |>  
   summarize(Maximum = max(Value),
             Minimum = min(Value)),
-  caption = "Table 1: Maximum and minimum number of horses for each province between 1940 - 1972")
+  caption = "Table 1: The Maximum and minimum number of horses in each province in 1940 to 1972")
 ```
 
 Below we zoom in and look at the province of Alberta:
 
-```{r plot province, fig.width=5, fig.height=4}
+```{r plot province, fig.width=5, fig.height=4, fig.cap="Figure 2. Number of horses for province of ALberta"}
 province_plot <- horse_pop %>% 
   filter(GEO == "Alberta") %>% 
   ggplot(aes(x = Ref_Date, y = Value)) +
