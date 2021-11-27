@@ -1,5 +1,7 @@
 ---
 title: "Historical horse population in Canada"
+params:
+  province: "Alberta"
 output: 
   html_document: 
     toc: true
@@ -16,7 +18,7 @@ library(kableExtra)
 
 ## Aim
 
-This project explores the historical population of horses in Canada between 1906 and 1972 for each Province.
+This project explores the historical population of horses in Canada between 1906 and 1973 for each Province.
 
 
 ## Data
@@ -54,7 +56,7 @@ horse_plot <- ggplot(horse_pop, aes(x = Ref_Date, y = Value)) +
 horse_plot
 ```
 
-We can see from the visualisation above that Ontario, Saskatchewan and Alberta have had the highest horse populations in Canada. All provinces have had a decline in horse
+We can see from the visualisation above that Ontario, Saskatchewan and ALberta have had the highest horse populations in Canada. All provinces have had a decline in horse
 populations since 1940. This is likely due to the rebound of the Canadian automotive
 industry after the Great Depression and the Second World War. An interesting follow-up visualization would be car sales per year for each Province over the time period visualised above to further support this hypothesis. 
 
@@ -67,14 +69,15 @@ kable(horse_pop |>
   group_by(Province) |>  
   summarize(Maximum = max(Value),
             Minimum = min(Value)),
-  caption = "Table 1: The Maximum and minimum number of horses in each province in 1940 to 1972")
+  caption = "Table 1: The Maximum and minimum number of horses in each province in 1940 to 1972") |> 
+  kable_styling(full_width = F)
 ```
 
-Below we zoom in and look at the province of Alberta:
+Below we zoom in and look at the province of `r params$province`:
 
-```{r plot province, fig.width=5, fig.height=4, fig.cap="Figure 2. Number of horses for province of ALberta"}
-province_plot <- horse_pop %>% 
-  filter(GEO == "Alberta") %>% 
+```{r plot province, fig.align = 'center', fig.width=5, fig.height=4, fig.cap="Figure 2. Number of horses for the stated province"}
+province_plot <- horse_pop |>  
+  filter(GEO == params$province) |>  
   ggplot(aes(x = Ref_Date, y = Value)) +
   geom_point() +
   geom_line() +
