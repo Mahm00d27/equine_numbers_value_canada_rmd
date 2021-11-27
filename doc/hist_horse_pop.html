@@ -58,6 +58,28 @@ if (window.hljs) {
 
 
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 
 
@@ -175,6 +197,7 @@ pre code {
 <li><a href="#data">Data</a></li>
 <li><a href="#methods">Methods</a></li>
 <li><a href="#results">Results</a></li>
+<li><a href="#references">References</a></li>
 </ul>
 </div>
 
@@ -192,7 +215,7 @@ pre code {
 </div>
 <div id="methods" class="section level2">
 <h2>Methods</h2>
-<p>The R programming language and the following R packages were used to perform the analysis: knitr and tidyverse. The code used to perform the analysis and create this report can be found here: <a href="https://github.com/ttimbers/equine_numbers_value_canada_rmd" class="uri">https://github.com/ttimbers/equine_numbers_value_canada_rmd</a>.</p>
+<p>The R programming language <span class="citation">(R Core Team 2013)</span> and the following R packages were used to perform the analysis: knitr <span class="citation">(Xie 2014)</span> and tidyverse <span class="citation">(Wickham et al. 2019)</span>. The code used to perform the analysis and create this report can be found here: <a href="https://github.com/ttimbers/equine_numbers_value_canada_rmd" class="uri">https://github.com/ttimbers/equine_numbers_value_canada_rmd</a>.</p>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>
@@ -202,7 +225,7 @@ pre code {
 Figure 1. Equine population of all provinces in Canada between 1940 and 1972
 </p>
 </div>
-<p>We can see from the visualisation above that Ontario, Saskatchewan and ALberta have had the highest horse populations in Canada. All provinces have had a decline in horse populations since 1940. This is likely due to the rebound of the Canadian automotive industry after the Great Depression and the Second World War. An interesting follow-up visualization would be car sales per year for each Province over the time period visualised above to further support this hypothesis.</p>
+<p>We can see from the visualisation above that Ontario, Saskatchewan and ALberta have had the highest horse populations in Canada. All provinces have had a decline in horse populations since 1940. This is likely due to the rebound of the Canadian automotive <span class="citation">(McDiarmid 1940)</span> industry after the Great Depression <span class="citation">(McElvaine 2010)</span> and the Second World War <span class="citation">(Beevor 2012)</span>. An interesting follow-up visualization would be car sales per year for each Province over the time period visualised above to further support this hypothesis.</p>
 <p>Next we look at the range of the number horses for each provinces at any time point between 1940 - 1972:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -329,6 +352,29 @@ Saskatchewan
 <p class="caption">
 Figure 2. Number of horses for the stated province
 </p>
+</div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2 class="unnumbered">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-beevor2012second" class="csl-entry">
+Beevor, Antony. 2012. <em>The Second World War</em>. Back Bay Books.
+</div>
+<div id="ref-mcdiarmid1940some" class="csl-entry">
+McDiarmid, Orville John. 1940. <span>“Some Aspects of the Canadian Automobile Industry.”</span> <em>Canadian Journal of Economics and Political Science/Revue Canadienne de Economiques Et Science Politique</em> 6 (2): 258–74.
+</div>
+<div id="ref-mcelvaine2010great" class="csl-entry">
+McElvaine, R. S. 2010. <em>The Great Depression: America 1929-1941</em>. Crown. <a href="https://books.google.ca/books?id=ZrSKQMOh7OIC">https://books.google.ca/books?id=ZrSKQMOh7OIC</a>.
+</div>
+<div id="ref-r_program" class="csl-entry">
+R Core Team. 2013. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="http://www.R-project.org/">http://www.R-project.org/</a>.
+</div>
+<div id="ref-tidy" class="csl-entry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-knitr" class="csl-entry">
+Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC. <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>.
+</div>
 </div>
 </div>
 
